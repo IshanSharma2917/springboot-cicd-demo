@@ -19,5 +19,14 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
+      - name: Verify Java Version
+        run: java -version
+
       - name: Build Project
         run: mvn clean install
+
+      - name: List Generated JAR
+        run: ls -l target/
+
+      - name: Build Docker Image
+        run: docker build -t task-scheduler .
